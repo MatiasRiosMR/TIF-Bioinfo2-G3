@@ -1,6 +1,6 @@
 # Proyecto: Bioinformática Aplicada a un Brote de Brucelosis
 
-![Logo Facultad](/home/matias/Escritorio/TIF-Bioinfo2-G3/data/logo_fiuner.png)
+![Logo Facultad](./data/logo_fiuner.png)
 
 **Asignatura:** Bioinformática 2
 
