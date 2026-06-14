@@ -8,9 +8,9 @@ Fuente: Facultad de Ingeniería - UNER
 VALIDACIÓN DE ARCHIVOS DE ENTRADA
 ---------------------------------
 
-    OK: Archivo FASTA encontrado: example_data/genomas.fna
-    OK: Archivo GFF encontrado: example_data/genes.gff
-    OK: Directorio de salida listo: resultado
+    OK: Archivo FASTA encontrado: data/scaffolds.fasta
+    OK: Archivo GFF encontrado: data/brucella_hybrid.gff
+    OK: Directorio de salida listo: .
 Paso 1: DISEÑO DE PRIMERS PARA PCR
      OK: Tabla de primers generada: res_primers.tab
      OK: Amplicones en FASTA generados: res_prod.fa
@@ -28,33 +28,33 @@ Archivos generados:
   res_prod.fa
   res_enzimas.tab
 
-Directorio de salida: /home/matias/Escritorio/TP-Final-Bioinfo2/resultado
+Directorio de salida: /home/matias/Escritorio/TIF-Bioinfo2-G3/actividad-6-diseno-primers
 
-Registro de salida: resultado/pipeline.stdout.log
-Registro de errores: resultado/pipeline.stderr.log
+Registro de salida: pipeline.stdout.log
+Registro de errores: pipeline.stderr.log
 
-Fecha de ejecución: 2026-06-04 16:36:28
+Fecha de ejecución: 2026-06-14 19:13:20
 
 
 ESTADÍSTICAS
 ------------
 
-Genes procesados: 3085
-Primers diseñados: 3085
-Amplicones generados: 3085
-Sitios de restricción encontrados: 3918
+Genes procesados: 26
+Primers diseñados: 26
+Amplicones generados: 26
+Sitios de restricción encontrados: 42
 
 Distribución de enzimas de restricción:
-  AvaII        2766
-  EcoRI        956
-  BamHI        196
+  AvaII        27
+  EcoRI        12
+  BamHI        3
 
 Estadísticas por amplicón:
   Mínimo de sitios: 0
-  Máximo de sitios: 20
-  Promedio de sitios: 1.27
+  Máximo de sitios: 6
+  Promedio de sitios: 1.62
 
-Tiempo de ejecución: 0.62 segundos
+Tiempo de ejecución: 0.02 segundos
 
 Gracias por usar el pipeline.
 Contacto: bioinfortics.g3@ingenieria.uner.edu.ar
