@@ -1,5 +1,13 @@
 # Proyecto: Bioinformática Aplicada a un Brote de Brucelosis
 
+![Logo Facultad](/home/matias/Escritorio/TIF-Bioinfo2-G3/data/logo_fiuner.png)
+
+**Asignatura:** Bioinformática 2
+
+**Institución:** Facultad de Ingeniería - Universidad Nacional de Entre Ríos
+
+---
+
 ## Descripción General
 
 Trabajo Práctico Integrador que implementa un pipeline bioinformático completo para el análisis y anotación de genomas bacterianos aplicado al estudio de un brote de **Brucelosis**. El proyecto integra múltiples etapas: ensamblado de secuencias, análisis de calidad, anotación funcional, análisis filogenético y diseño de primers.
@@ -18,10 +26,13 @@ Trabajo Práctico Integrador que implementa un pipeline bioinformático completo
 
 Este repositorio contiene todos los scripts, configuraciones y documentos con resultados utilizados para el desarrollo del trabajo práctico:
 
-- **actividad-2-ensamblado/**: Scripts y resultados del ensamblado híbrido de lecturas cortas y largas usando SPAdes
-- **actividad-4-anotacion/**: Anotación funcional de proteínas usando Prodigal, Prokka y BLAST contra la base de datos SwissProt
-- **actividad-5-filogenia/**: Análisis filogenético del genoma de referencia
-- **actividad-6-diseno-primers/**: Pipeline de diseño de primers específicos para detección de patógenos
+- **actividad-2-ensamblado/**: Scripts y resultados del ensamblado híbrido de lecturas cortas y largas usando SPAdes, incluyendo reportes de calidad (QUAST)
+
+- **actividad-4-anotacion/**: Predicción de genes (Prodigal) y anotación funcional (Prokka). Refinamiento mediante búsquedas BLAST contra la base de datos SwissProt. Incluye script automatizado para paralelizar búsquedas y tabla consolidada con funciones predichas
+
+- **actividad-5-filogenia/**: Análisis evolutivo de *Brucella suis* mediante PSI-BLAST, alineamiento múltiple (Clustal X), identificación de dominios conservados (InterPro) y construcción de árbol filogenético para comparar con otras especies bacterianas
+
+- **actividad-6-diseno-primers/**: Pipeline en Python/bash que diseña primers específicos de 20 nucleótidos para cada gen. Calcula temperaturas de melting (Tm) y annealing (Ta), genera productos de PCR en FASTA, y analiza sitios de restricción (EcoRI, BamHI, AvaII) para evaluación de clonado
 
 ---
 
@@ -154,6 +165,12 @@ bash blast_analizar_top3hits.sh
 cd actividad-6-diseno-primers/
 python main.py
 ```
+
+---
+
+## Datos Utilizados
+
+Los datos utilizados en este trabajo práctico fueron proporcionados por la **Cátedra de Bioinformática 2** de la Facultad de Ingeniería (UNER) para el análisis y estudio del brote de brucelosis porcina.
 
 ---
 
