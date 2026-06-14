@@ -1,0 +1,13 @@
+# Dependencias Python para Proyecto: Bioinformática Aplicada a un Brote de Brucelosis
+# 
+# Instalar con: pip install -r requirements.txt
+
+# Bioinformática
+biopython>=1.87
+
+# Análisis de datos (complementario)
+numpy>=1.19.0
+pandas>=1.1.0
+
+# Utilidades
+setuptools>=50.0
