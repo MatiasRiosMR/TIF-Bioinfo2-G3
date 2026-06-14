@@ -1,6 +1,8 @@
 # Proyecto: Bioinformática Aplicada a un Brote de Brucelosis
 
-![Logo Facultad](./data/logo_fiuner.png)
+<div align="center">
+  <img src="./data/logo_fiuner.png" alt="Logo FIUNER" width="200">
+</div>
 
 **Asignatura:** Bioinformática 2
 
@@ -53,7 +55,7 @@ Este proyecto requiere las siguientes herramientas bioinformáticas:
 
 1. **Clonar o descargar el repositorio**:
    ```bash
-   git clone <url-repositorio>
+   git clone <https://github.com/MatiasRiosMR/TIF-Bioinfo2-G3.git>
    cd TIF-Bioinfo2-G3
    ```
 
@@ -170,7 +172,7 @@ python main.py
 
 ## Datos Utilizados
 
-Los datos utilizados en este trabajo práctico fueron proporcionados por la **Cátedra de Bioinformática 2** de la Facultad de Ingeniería (UNER) para el análisis y estudio del brote de brucelosis porcina.
+Los datos utilizados en este trabajo práctico fueron proporcionados por la **Cátedra de Bioinformática 2** de la Facultad de Ingeniería (UNER) a fin del trabajo final integrador de la materia para el análisis y estudio del brote de brucelosis porcina.
 
 ---
 
@@ -182,23 +184,6 @@ Todos los resultados generados durante el análisis se encuentran organizados en
 - **Anotación de Genes**: `actividad-4-anotacion/results_prokka/`
 - **Resultados BLAST**: `actividad-4-anotacion/pipeline-blast_local/blast_swissprot.tsv`
 - **Primers Diseñados**: `actividad-6-diseno-primers/resultado/`
-
----
-
-## Autorización para Reproducción
-
-Este trabajo y todos sus contenidos (scripts, datos, análisis y resultados) se comparten **exclusivamente con fines educativos y de investigación académica**.
-
-**Se solicita autorización previa** para:
-- Reproducción total o parcial del análisis
-- Reutilización de los scripts en otros proyectos
-- Publicación o presentación de los resultados
-- Distribución del código o datos
-
-Para obtener autorización, contactar a:
-- Sara Barbara
-- Emilia Vergara
-- Matias Rios
 
 ---
 
