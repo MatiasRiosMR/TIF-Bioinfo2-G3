@@ -1,0 +1,38 @@
+\033[1;34m┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\033[0m
+\033[1;34m┃\033[0m            \033[1;37mUNIVERSIDAD NACIONAL DE ENTRE RÍOS (UNER)\033[0m            \033[1;34m┃\033[0m
+\033[1;34m┃\033[0m                      \033[1;36mFACULTAD DE INGENIERÍA\033[0m                      \033[1;34m┃\033[0m
+\033[1;34m┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\033[0m
+ Carrera:  Licenciatura en Bioinformática
+ Materia:  Bioinformática 2 / Análisis y Alineamientos de Secuencias
+ Trabajo:  Trabajo Integrador Final
+ Alumnos:  \033[1;37mBarbara Sara, Vergara Emilia, Rios Matias\033[0m
+\033[1;34m────────────────────────────────────────────────────────────────────\033[0m
+                    \033[1;33mPARÁMETROS DE CONFIGURACIÓN\033[0m                  
+\033[1;34m────────────────────────────────────────────────────────────────────\033[0m
+  • Archivo Input:   \033[1;37mbrucella_hybrid.faa\033[0m
+  • Base de Datos:   \033[2m/home/matias/Escritorio/TP_Set3/actividad-3-anotacion/pipeline-blast_local/db/swissprot\033[0m
+  • Umbral E-value:  \033[1;32m1e-5\033[0m
+  • Máximos Hits:    \033[1;32m3 por query\033[0m
+  • Hilos (CPUs):    \033[1;32m8 cores\033[0m
+  • Archivo Output:  \033[1;33mblast_swissprot.tsv\033[0m
+  • Archivo Log:     \033[1;33mblast_swissprot.log\033[0m
+\033[1;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m
+[STATUS] [2026-06-14 18:21:29] Validando requerimientos del sistema y consistencia de archivos...
+[INFO] [2026-06-14 18:21:30] Entorno y dependencias verificadas correctamente.
+[INFO] [2026-06-14 18:21:30] Total de secuencias identificadas en el input: \033[1;36m26\033[0m
+[STATUS] [2026-06-14 18:21:30] Iniciando la ejecución del algoritmo BLASTp...
+Warning: [blastp] Examining 5 or more matches is recommended
+[INFO] [2026-06-14 18:21:37] El análisis por homología de secuencias ha finalizado.
+\033[1;34m┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\033[0m
+\033[1;34m┃\033[0m                 \033[1;32mPROCESO FINALIZADO CORRECTAMENTE\033[0m                 \033[1;34m┃\033[0m
+\033[1;34m┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\033[0m
+ Los datos resultantes del análisis han sido estructurados y exportados:
+
+  • Matriz de Resultados (TSV):  \033[1;37m/home/matias/Escritorio/TP_Set3/actividad-3-anotacion/pipeline-blast_local/blast_swissprot.tsv\033[0m
+  • Registro de Eventos (Log):   \033[1;37m/home/matias/Escritorio/TP_Set3/actividad-3-anotacion/pipeline-blast_local/blast_swissprot.log\033[0m
+
+ ──────────────────────────────────────────────────────────────────
+  Agradecemos la utilización de este módulo de procesamiento local.
+  Desarrollado en el marco académico de la Facultad de Ingeniería.
+  Universidad Nacional de Entre Ríos.
+\033[1;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m

@@ -1,0 +1,8 @@
+- "number": !!int "1"
+  "single reads":
+  - "/home/matias/Escritorio/TP_Set3/Set3.fq"
+  "type": "single"
+- "number": !!int "1"
+  "single reads":
+  - "/home/matias/Escritorio/TP_Set3/spades_hybrid/split_input/secuencia_consenso.fasta"
+  "type": "trusted-contigs"

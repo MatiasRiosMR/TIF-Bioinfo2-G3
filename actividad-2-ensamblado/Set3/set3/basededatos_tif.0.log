@@ -1,0 +1,142 @@
+Sun 14 Jun 13:51:05 2026 [45@4bb83d67e063] opening rw... by root(0)
+Sun 14 Jun 13:51:05 2026 [45@4bb83d67e063] ...opened
+Sun 14 Jun 13:51:27 2026 [45@4bb83d67e063] auto assemble
+Sun 14 Jun 13:51:27 2026 [45@4bb83d67e063] > Delete contig. Renumber 12 (last) to 6 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 20 (last) to 10 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 19 (last) to 13 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 18 (last) to 5 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 17 (last) to 17 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 16 (last) to 9 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 15 (last) to 13 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 14 (last) to 10 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 13 (last) to 6 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 13 (last) to 4 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 12 (last) to 9 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 12 (last) to 4 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 11 (last) to 6 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 10 (last) to 2 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 9 (last) to 1 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 8 (last) to 6 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 8 (last) to 2 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 7 (last) to 1 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 6 (last) to 5 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Delete contig. Renumber 6 (last) to 1 (deleting)
+Sun 14 Jun 13:51:28 2026 [45@4bb83d67e063] > Register id=1 cnum=1 func=0x702e00748530 data=0x618817c98730 :Contig selector
+Sun 14 Jun 13:58:14 2026 [45@4bb83d67e063] find internal joins
+Sun 14 Jun 13:58:14 2026 [45@4bb83d67e063] > Register id=3 cnum=1 func=0x702e0073c4a0 data=0x618817c62aa0 :Find Internal Joins
+Sun 14 Jun 14:01:10 2026 [45@4bb83d67e063] > Register id=4 cnum=3 func=0x702e00790870 data=0x61881785e250 :Contig editor @ =3
+Sun 14 Jun 14:01:10 2026 [45@4bb83d67e063] > Register id=5 cnum=5 func=0x702e00790870 data=0x618817c81630 :Contig editor @ =5
+Sun 14 Jun 14:01:21 2026 [45@4bb83d67e063] > Register id=6 cnum=4 func=0x702e00790870 data=0x618817ba7cf0 :Contig editor @ =4
+Sun 14 Jun 14:01:21 2026 [45@4bb83d67e063] > Register id=7 cnum=1 func=0x702e00790870 data=0x618817bae3f0 :Contig editor @ =1
+Sun 14 Jun 14:03:59 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:05:12 2026 [45@4bb83d67e063] > Deregister id=6 cnum=4 func=0x702e00790870 data=0x618817ba7cf0 :Contig editor @ 167
+Sun 14 Jun 14:05:12 2026 [45@4bb83d67e063] > Deregister id=7 cnum=1 func=0x702e00790870 data=0x618817bae3f0 :Contig editor @ 173
+Sun 14 Jun 14:05:25 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:08:13 2026 [45@4bb83d67e063] > Deregister id=4 cnum=3 func=0x702e00790870 data=0x61881785e250 :Contig editor @ 187
+Sun 14 Jun 14:08:13 2026 [45@4bb83d67e063] > Deregister id=5 cnum=5 func=0x702e00790870 data=0x618817c81630 :Contig editor @ 37
+Sun 14 Jun 14:08:18 2026 [45@4bb83d67e063] > Register id=8 cnum=3 func=0x702e00790870 data=0x618817c81630 :Contig editor @ =3
+Sun 14 Jun 14:08:18 2026 [45@4bb83d67e063] > Register id=9 cnum=4 func=0x702e00790870 data=0x61881785e250 :Contig editor @ =4
+Sun 14 Jun 14:08:25 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:08:40 2026 [45@4bb83d67e063] > Deregister id=9 cnum=4 func=0x702e00790870 data=0x61881785e250 :Contig editor @ 22
+Sun 14 Jun 14:08:40 2026 [45@4bb83d67e063] > Deregister id=8 cnum=3 func=0x702e00790870 data=0x618817c81630 :Contig editor @ 187
+Sun 14 Jun 14:08:43 2026 [45@4bb83d67e063] edit contig
+Sun 14 Jun 14:08:43 2026 [45@4bb83d67e063] > Register id=10 cnum=3 func=0x702e00790870 data=0x6188179b0790 :Contig editor @ =3
+Sun 14 Jun 14:08:47 2026 [45@4bb83d67e063] > Deregister id=10 cnum=3 func=0x702e00790870 data=0x6188179b0790 :Contig editor @ 187
+Sun 14 Jun 14:08:50 2026 [45@4bb83d67e063] > Register id=11 cnum=4 func=0x702e00790870 data=0x61881795d8b0 :Contig editor @ =4
+Sun 14 Jun 14:08:50 2026 [45@4bb83d67e063] > Register id=12 cnum=2 func=0x702e00790870 data=0x6188178d7090 :Contig editor @ =2
+Sun 14 Jun 14:08:57 2026 [45@4bb83d67e063] > Deregister id=11 cnum=4 func=0x702e00790870 data=0x61881795d8b0 :Contig editor @ 22
+Sun 14 Jun 14:08:57 2026 [45@4bb83d67e063] > Deregister id=12 cnum=2 func=0x702e00790870 data=0x6188178d7090 :Contig editor @ 161
+Sun 14 Jun 14:09:08 2026 [45@4bb83d67e063] > Register id=13 cnum=0 func=0x702e00711a80 data=0x618817960510 :
+Sun 14 Jun 14:09:10 2026 [45@4bb83d67e063] edit contig
+Sun 14 Jun 14:09:10 2026 [45@4bb83d67e063] > Register id=14 cnum=3 func=0x702e00790870 data=0x618817bf9470 :Contig editor @ =3
+Sun 14 Jun 14:09:21 2026 [45@4bb83d67e063] > Deregister id=14 cnum=3 func=0x702e00790870 data=0x618817bf9470 :Contig editor @ 187
+Sun 14 Jun 14:09:27 2026 [45@4bb83d67e063] edit contig
+Sun 14 Jun 14:09:27 2026 [45@4bb83d67e063] > Register id=15 cnum=2 func=0x702e00790870 data=0x618817ab63f0 :Contig editor @ =2
+Sun 14 Jun 14:09:28 2026 [45@4bb83d67e063] > Deregister id=15 cnum=2 func=0x702e00790870 data=0x618817ab63f0 :Contig editor @ 161
+Sun 14 Jun 14:13:09 2026 [45@4bb83d67e063] > Deregister id=3 cnum=1 func=0x702e0073c4a0 data=0x618817c62aa0 :Find Internal Joins
+Sun 14 Jun 14:13:09 2026 [45@4bb83d67e063] > Deregister id=1 cnum=1 func=0x702e00748530 data=0x618817c98730 :Contig selector
+Sun 14 Jun 14:13:23 2026 [45@4bb83d67e063] > Register id=16 cnum=1 func=0x702e00748530 data=0x618817c98730 :Contig selector
+Sun 14 Jun 14:13:23 2026 [45@4bb83d67e063] find internal joins
+Sun 14 Jun 14:13:23 2026 [45@4bb83d67e063] > Register id=18 cnum=1 func=0x702e0073c4a0 data=0x618816f45300 :Find Internal Joins
+Sun 14 Jun 14:13:24 2026 [45@4bb83d67e063] > Register id=19 cnum=3 func=0x702e00790870 data=0x618817ab63f0 :Contig editor @ =3
+Sun 14 Jun 14:13:24 2026 [45@4bb83d67e063] > Register id=20 cnum=5 func=0x702e00790870 data=0x618817951050 :Contig editor @ =5
+Sun 14 Jun 14:13:29 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:14:25 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:15:01 2026 [45@4bb83d67e063] > Deregister id=20 cnum=5 func=0x702e00790870 data=0x618817951050 :Contig editor @ 37
+Sun 14 Jun 14:15:01 2026 [45@4bb83d67e063] > Deregister id=19 cnum=3 func=0x702e00790870 data=0x618817ab63f0 :Contig editor @ 187
+Sun 14 Jun 14:15:06 2026 [45@4bb83d67e063] > Register id=21 cnum=4 func=0x702e00790870 data=0x618817ab63f0 :Contig editor @ =4
+Sun 14 Jun 14:15:06 2026 [45@4bb83d67e063] > Register id=22 cnum=1 func=0x702e00790870 data=0x618817953ad0 :Contig editor @ =1
+Sun 14 Jun 14:15:08 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:15:18 2026 [45@4bb83d67e063] > Deregister id=22 cnum=1 func=0x702e00790870 data=0x618817953ad0 :Contig editor @ 173
+Sun 14 Jun 14:15:18 2026 [45@4bb83d67e063] > Deregister id=21 cnum=4 func=0x702e00790870 data=0x618817ab63f0 :Contig editor @ 22
+Sun 14 Jun 14:15:20 2026 [45@4bb83d67e063] > Register id=23 cnum=3 func=0x702e00790870 data=0x618817ab63f0 :Contig editor @ =3
+Sun 14 Jun 14:15:20 2026 [45@4bb83d67e063] > Register id=24 cnum=4 func=0x702e00790870 data=0x61881794e110 :Contig editor @ =4
+Sun 14 Jun 14:15:21 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:15:36 2026 [45@4bb83d67e063] > Deregister id=24 cnum=4 func=0x702e00790870 data=0x61881794e110 :Contig editor @ 22
+Sun 14 Jun 14:15:36 2026 [45@4bb83d67e063] > Deregister id=23 cnum=3 func=0x702e00790870 data=0x618817ab63f0 :Contig editor @ 187
+Sun 14 Jun 14:15:39 2026 [45@4bb83d67e063] > Register id=25 cnum=4 func=0x702e00790870 data=0x618817b7aad0 :Contig editor @ =4
+Sun 14 Jun 14:15:39 2026 [45@4bb83d67e063] > Register id=26 cnum=2 func=0x702e00790870 data=0x6188176a23e0 :Contig editor @ =2
+Sun 14 Jun 14:15:41 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:15:53 2026 [45@4bb83d67e063] > Deregister id=26 cnum=2 func=0x702e00790870 data=0x6188176a23e0 :Contig editor @ 161
+Sun 14 Jun 14:15:53 2026 [45@4bb83d67e063] > Deregister id=25 cnum=4 func=0x702e00790870 data=0x618817b7aad0 :Contig editor @ 22
+Sun 14 Jun 14:18:14 2026 [45@4bb83d67e063] > Deregister id=18 cnum=1 func=0x702e0073c4a0 data=0x618816f45300 :Find Internal Joins
+Sun 14 Jun 14:18:14 2026 [45@4bb83d67e063] > Deregister id=16 cnum=1 func=0x702e00748530 data=0x618817c98730 :Contig selector
+Sun 14 Jun 14:24:34 2026 [45@4bb83d67e063] > Register id=27 cnum=1 func=0x702e00748530 data=0x618817da8fc0 :Contig selector
+Sun 14 Jun 14:24:34 2026 [45@4bb83d67e063] find internal joins
+Sun 14 Jun 14:24:34 2026 [45@4bb83d67e063] > Register id=29 cnum=1 func=0x702e0073c4a0 data=0x618817c06f70 :Find Internal Joins
+Sun 14 Jun 14:25:55 2026 [45@4bb83d67e063] > Register id=30 cnum=3 func=0x702e00790870 data=0x618817b7aad0 :Contig editor @ =3
+Sun 14 Jun 14:25:56 2026 [45@4bb83d67e063] > Register id=31 cnum=5 func=0x702e00790870 data=0x618817669c80 :Contig editor @ =5
+Sun 14 Jun 14:25:57 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:30:08 2026 [45@4bb83d67e063] > Deregister id=31 cnum=5 func=0x702e00790870 data=0x618817669c80 :Contig editor @ 37
+Sun 14 Jun 14:30:08 2026 [45@4bb83d67e063] > Register_join cfrom=5 cto=3
+Sun 14 Jun 14:30:08 2026 [45@4bb83d67e063] > Register_join done
+Sun 14 Jun 14:30:08 2026 [45@4bb83d67e063] > Delete contig. Renumber 5 (last) to 5 (deleting)
+Sun 14 Jun 14:30:08 2026 [45@4bb83d67e063] > Deregister id=30 cnum=3 func=0x702e00790870 data=0x618817b7aad0 :Contig editor @ 187
+Sun 14 Jun 14:30:13 2026 [45@4bb83d67e063] > Register id=32 cnum=4 func=0x702e00790870 data=0x618817b7aad0 :Contig editor @ =4
+Sun 14 Jun 14:30:13 2026 [45@4bb83d67e063] > Register id=33 cnum=1 func=0x702e00790870 data=0x618817c2d490 :Contig editor @ =1
+Sun 14 Jun 14:30:14 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:30:25 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:30:28 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:30:37 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:30:40 2026 [45@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:30:46 2026 [45@4bb83d67e063] > Deregister id=33 cnum=1 func=0x702e00790870 data=0x618817c2d490 :Contig editor @ 173
+Sun 14 Jun 14:30:46 2026 [45@4bb83d67e063] > Deregister id=32 cnum=4 func=0x702e00790870 data=0x618817b7aad0 :Contig editor @ 22
+Sun 14 Jun 14:30:47 2026 [45@4bb83d67e063] > Register id=34 cnum=3 func=0x702e00790870 data=0x618817b7aad0 :Contig editor @ =3
+Sun 14 Jun 14:30:47 2026 [45@4bb83d67e063] > Register id=35 cnum=4 func=0x702e00790870 data=0x618817e41340 :Contig editor @ =4
+Sun 14 Jun 14:30:57 2026 [45@4bb83d67e063] > Deregister id=29 cnum=1 func=0x702e0073c4a0 data=0x618817c06f70 :Find Internal Joins
+Sun 14 Jun 14:30:57 2026 [45@4bb83d67e063] > Deregister id=27 cnum=1 func=0x702e00748530 data=0x618817da8fc0 :Contig selector
+Sun 14 Jun 14:30:57 2026 [45@4bb83d67e063] > Deregister id=34 cnum=3 func=0x702e00790870 data=0x618817b7aad0 :Contig editor @ 187
+Sun 14 Jun 14:30:57 2026 [45@4bb83d67e063] > Deregister id=35 cnum=4 func=0x702e00790870 data=0x618817e41340 :Contig editor @ 22
+Sun 14 Jun 14:30:57 2026 [45@4bb83d67e063] > Deregister id=13 cnum=0 func=0x702e00711a80 data=0x618817960510 :
+Sun 14 Jun 14:30:57 2026 [45@4bb83d67e063] close database
+Sun 14 Jun 14:30:57 2026 [45@4bb83d67e063] closing...
+Sun 14 Jun 14:30:57 2026 [45@4bb83d67e063] ...closed
+Sun 14 Jun 14:32:07 2026 [55@4bb83d67e063] opening rw... by root(0)
+Sun 14 Jun 14:32:07 2026 [55@4bb83d67e063] ...opened
+Sun 14 Jun 14:32:07 2026 [55@4bb83d67e063] check database
+Sun 14 Jun 14:32:07 2026 [55@4bb83d67e063] > Register id=1 cnum=1 func=0x7cd8f44d2530 data=0x5ffb749713d0 :Contig selector
+Sun 14 Jun 14:32:07 2026 [55@4bb83d67e063] Database information
+Sun 14 Jun 14:32:19 2026 [55@4bb83d67e063] > Deregister id=1 cnum=1 func=0x7cd8f44d2530 data=0x5ffb749713d0 :Contig selector
+Sun 14 Jun 14:32:25 2026 [55@4bb83d67e063] > Register id=2 cnum=1 func=0x7cd8f44d2530 data=0x5ffb749713d0 :Contig selector
+Sun 14 Jun 14:32:25 2026 [55@4bb83d67e063] find internal joins
+Sun 14 Jun 14:32:25 2026 [55@4bb83d67e063] > Register id=4 cnum=1 func=0x7cd8f44c64a0 data=0x5ffb74221f80 :Find Internal Joins
+Sun 14 Jun 14:32:27 2026 [55@4bb83d67e063] > Register id=5 cnum=4 func=0x7cd8f451a870 data=0x5ffb74931f20 :Contig editor @ =4
+Sun 14 Jun 14:32:27 2026 [55@4bb83d67e063] > Register id=6 cnum=1 func=0x7cd8f451a870 data=0x5ffb74a7a140 :Contig editor @ =1
+Sun 14 Jun 14:32:29 2026 [55@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:32:55 2026 [55@4bb83d67e063] > Deregister id=6 cnum=1 func=0x7cd8f451a870 data=0x5ffb74a7a140 :Contig editor @ 173
+Sun 14 Jun 14:32:55 2026 [55@4bb83d67e063] > Register_join cfrom=1 cto=4
+Sun 14 Jun 14:32:55 2026 [55@4bb83d67e063] > Register_join done
+Sun 14 Jun 14:32:55 2026 [55@4bb83d67e063] > Delete contig. Renumber 4 (last) to 1 (deleting)
+Sun 14 Jun 14:32:55 2026 [55@4bb83d67e063] > Deregister id=5 cnum=1 func=0x7cd8f451a870 data=0x5ffb74931f20 :Contig editor @ 22
+Sun 14 Jun 14:32:56 2026 [55@4bb83d67e063] > Register id=7 cnum=3 func=0x7cd8f451a870 data=0x5ffb74931f20 :Contig editor @ =3
+Sun 14 Jun 14:32:56 2026 [55@4bb83d67e063] > Register id=8 cnum=1 func=0x7cd8f451a870 data=0x5ffb74ba00a0 :Contig editor @ =1
+Sun 14 Jun 14:32:58 2026 [55@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:33:01 2026 [55@4bb83d67e063] > Deregister id=8 cnum=1 func=0x7cd8f451a870 data=0x5ffb74ba00a0 :Contig editor @ 22
+Sun 14 Jun 14:33:01 2026 [55@4bb83d67e063] > Deregister id=7 cnum=3 func=0x7cd8f451a870 data=0x5ffb74931f20 :Contig editor @ 187
+Sun 14 Jun 14:33:02 2026 [55@4bb83d67e063] > Register id=9 cnum=1 func=0x7cd8f451a870 data=0x5ffb74931f20 :Contig editor @ =1
+Sun 14 Jun 14:33:02 2026 [55@4bb83d67e063] > Register id=10 cnum=2 func=0x7cd8f451a870 data=0x5ffb74964cd0 :Contig editor @ =2
+Sun 14 Jun 14:33:04 2026 [55@4bb83d67e063] Align contigs (join editor)
+Sun 14 Jun 14:33:10 2026 [55@4bb83d67e063] > Deregister id=10 cnum=2 func=0x7cd8f451a870 data=0x5ffb74964cd0 :Contig editor @ 161
+Sun 14 Jun 14:33:10 2026 [55@4bb83d67e063] > Deregister id=9 cnum=1 func=0x7cd8f451a870 data=0x5ffb74931f20 :Contig editor @ 22
+Sun 14 Jun 14:33:53 2026 [55@4bb83d67e063] > Register id=11 cnum=0 func=0x7cd8f449ba80 data=0x5ffb74bc4a70 :
+Sun 14 Jun 14:37:20 2026 [55@4bb83d67e063] calculate a consensus

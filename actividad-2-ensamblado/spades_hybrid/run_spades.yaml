@@ -1,0 +1,137 @@
+- STAGE: Before start
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: before_start
+- STAGE: Preprocess reads
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: preprocess_start
+- STAGE: Preprocess additional contigs
+  args:
+  - /usr/share/spades/spades_pipeline/scripts/preprocess_contigs.py
+  - --args_filename
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/split_input/tmp/contigs
+  - --dst
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/split_input
+  - --threshold_for_breaking_additional_contigs
+  - '10'
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /usr/bin/python3
+  short_name: preprocess_ac
+- STAGE: Preprocess reads
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: preprocess_finish
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_start
+- STAGE: K21
+  args:
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K21/configs/config.info
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K21/configs/isolate_mode.info
+  config_dir: K21
+  del_after: []
+  output_files: []
+  path: /usr/libexec/spades/spades-core
+  short_name: k21
+- STAGE: K33
+  args:
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K33/configs/config.info
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K33/configs/isolate_mode.info
+  config_dir: K33
+  del_after: []
+  output_files: []
+  path: /usr/libexec/spades/spades-core
+  short_name: k33
+- STAGE: K55
+  args:
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K55/configs/config.info
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K55/configs/isolate_mode.info
+  config_dir: K55
+  del_after: []
+  output_files: []
+  path: /usr/libexec/spades/spades-core
+  short_name: k55
+- STAGE: K77
+  args:
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/configs/config.info
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/configs/isolate_mode.info
+  config_dir: K77
+  del_after: []
+  output_files: []
+  path: /usr/libexec/spades/spades-core
+  short_name: k77
+- STAGE: Copy files
+  args:
+  - /usr/share/spades/spades_pipeline/scripts/copy_files.py
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/before_rr.fasta
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/before_rr.fasta
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/assembly_graph_after_simplification.gfa
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/assembly_graph_after_simplification.gfa
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/final_contigs.fasta
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/contigs.fasta
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/first_pe_contigs.fasta
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/first_pe_contigs.fasta
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/strain_graph.gfa
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/strain_graph.gfa
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/scaffolds.fasta
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/scaffolds.fasta
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/scaffolds.paths
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/scaffolds.paths
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/assembly_graph_with_scaffolds.gfa
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/assembly_graph_with_scaffolds.gfa
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/assembly_graph.fastg
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/assembly_graph.fastg
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/K77/final_contigs.paths
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/contigs.paths
+  config_dir: ''
+  del_after:
+  - .bin_reads
+  - tmp/spades_t_ehgpdi
+  output_files: []
+  path: /usr/bin/python3
+  short_name: copy_files
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_finish
+- STAGE: Breaking scaffolds
+  args:
+  - /usr/share/spades/spades_pipeline/scripts/breaking_scaffolds_script.py
+  - --result_scaffolds_filename
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/scaffolds.fasta
+  - --misc_dir
+  - /home/matias/Escritorio/TP_Set3/spades_hybrid/misc
+  - --threshold_for_breaking_scaffolds
+  - '3'
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /usr/bin/python3
+  short_name: bs
+- STAGE: Terminate
+  args: []
+  config_dir: ''
+  del_after:
+  - configs
+  output_files: []
+  path: 'true'
+  short_name: terminate

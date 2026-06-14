@@ -1,0 +1,37 @@
+Command line: /usr/libexec/spades/spades.py	--isolate	-s	/home/matias/Escritorio/TP_Set3/Set3.fq	--trusted-contigs	/home/matias/Escritorio/TP_Set3/secuencia_consenso.fasta	-o	/home/matias/Escritorio/TP_Set3/spades_hybrid	
+
+System information:
+  SPAdes version: 3.15.5
+  Python version: 3.14.4
+  OS: Linux-7.0.0-22-generic-x86_64-desconocido-with-glibc2.43
+
+Output dir: /home/matias/Escritorio/TP_Set3/spades_hybrid
+Mode: ONLY assembling (without read error correction)
+Debug mode is turned OFF
+
+Dataset parameters:
+  Isolate mode
+  Reads:
+    Library number: 1, library type: single
+      left reads: not specified
+      right reads: not specified
+      interlaced reads: not specified
+      single reads: ['/home/matias/Escritorio/TP_Set3/Set3.fq']
+      merged reads: not specified
+    Library number: 2, library type: trusted-contigs
+      left reads: not specified
+      right reads: not specified
+      interlaced reads: not specified
+      single reads: ['/home/matias/Escritorio/TP_Set3/secuencia_consenso.fasta']
+      merged reads: not specified
+Assembly parameters:
+  k: automatic selection based on read length
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+Other parameters:
+  Dir for temp files: /home/matias/Escritorio/TP_Set3/spades_hybrid/tmp
+  Threads: 16
+  Memory limit (in Gb): 14
+

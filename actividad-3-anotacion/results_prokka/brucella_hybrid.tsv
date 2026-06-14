@@ -1,0 +1,27 @@
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+CDNNHOAL_00001	CDS	1059				hypothetical protein
+CDNNHOAL_00002	CDS	231				hypothetical protein
+CDNNHOAL_00003	CDS	1257	intA		COG0582	Prophage integrase IntA
+CDNNHOAL_00004	CDS	1563	guaA	6.3.5.2	COG0518	GMP synthase [glutamine-hydrolyzing]
+CDNNHOAL_00005	CDS	633	mtnN	3.2.2.9	COG0775	5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase
+CDNNHOAL_00006	CDS	576				hypothetical protein
+CDNNHOAL_00007	CDS	1290	rsmB	2.1.1.176	COG0144	Ribosomal RNA small subunit methyltransferase B
+CDNNHOAL_00008	CDS	627	dsbB			Disulfide bond formation protein B
+CDNNHOAL_00009	CDS	174				hypothetical protein
+CDNNHOAL_00010	CDS	1500	katA	1.11.1.6		Catalase
+CDNNHOAL_00011	CDS	954	oxyR			Hydrogen peroxide-inducible genes activator
+CDNNHOAL_00012	CDS	1074	tsdA	1.8.2.2	COG3258	Thiosulfate dehydrogenase
+CDNNHOAL_00013	CDS	1494	guaB	1.1.1.205	COG0516	Inosine-5'-monophosphate dehydrogenase
+CDNNHOAL_00014	CDS	1356	clcA		COG0038	H(+)/Cl(-) exchange transporter ClcA
+CDNNHOAL_00015	CDS	1107		3.4.11.-	COG3191	Uncharacterized aminopeptidase Rv1333
+CDNNHOAL_00016	CDS	1434	glmM	5.4.2.10	COG1109	Phosphoglucosamine mutase
+CDNNHOAL_00017	CDS	1416	algA		COG0662	Alginate biosynthesis protein AlgA
+CDNNHOAL_00018	CDS	888	gcvA			Glycine cleavage system transcriptional activator
+CDNNHOAL_00019	CDS	1593	pdeB	3.1.4.52	COG4943	Probable cyclic di-GMP phosphodiesterase PdeB
+CDNNHOAL_00020	CDS	165				hypothetical protein
+CDNNHOAL_00021	CDS	345	hdeA			Probable acid stress chaperone HdeA
+CDNNHOAL_00022	CDS	954	glsA1	3.5.1.2	COG2066	Glutaminase 1
+CDNNHOAL_00023	CDS	1281	gadC		COG0531	Glutamate/gamma-aminobutyrate antiporter
+CDNNHOAL_00024	CDS	411	gadB	4.1.1.15	COG0076	Glutamate decarboxylase beta
+CDNNHOAL_00025	CDS	960	gadA	4.1.1.15	COG0076	Glutamate decarboxylase alpha
+CDNNHOAL_00026	CDS	153				hypothetical protein

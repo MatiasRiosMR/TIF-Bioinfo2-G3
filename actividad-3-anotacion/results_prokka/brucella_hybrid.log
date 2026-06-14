@@ -1,0 +1,117 @@
+[16:58:00] This is prokka 1.13
+[16:58:00] Written by Torsten Seemann <torsten.seemann@gmail.com>
+[16:58:00] Homepage is https://github.com/tseemann/prokka
+[16:58:00] Local time is Sun Jun 14 16:58:00 2026
+[16:58:00] You are matias
+[16:58:00] Operating system is linux
+[16:58:00] You have BioPerl 1.007002
+[16:58:00] System has 12 cores.
+[16:58:00] Will use maximum of 8 cores.
+[16:58:00] Annotating as >>> Bacteria <<<
+[16:58:00] Generating locus_tag from 'scaffolds.fasta' contents.
+[16:58:00] Setting --locustag CDNNHOAL from MD5 cd7718a550a1d9b46c85705d1fc9eb21
+[16:58:00] Creating new output folder: prokka_annotation
+[16:58:00] Running: mkdir -p prokka_annotation
+[16:58:00] Using filename prefix: brucella_hybrid.XXX
+[16:58:00] Setting HMMER_NCPU=1
+[16:58:00] Writing log to: prokka_annotation/brucella_hybrid.log
+[16:58:00] Command: /home/matias/miniconda3/envs/predYanot/bin/prokka --genus Brucella --species suis --evalue 1e-05 --rawproduct --outdir prokka_annotation --prefix brucella_hybrid scaffolds.fasta
+[16:58:00] Appending to PATH: /home/matias/miniconda3/envs/predYanot/bin
+[16:58:00] Looking for 'aragorn' - found /home/matias/miniconda3/envs/predYanot/bin/aragorn
+[16:58:00] Determined aragorn version is 1.2
+[16:58:00] Looking for 'barrnap' - found /home/matias/miniconda3/envs/predYanot/bin/barrnap
+[16:58:00] Determined barrnap version is 0.9
+[16:58:00] Looking for 'blastp' - found /home/matias/miniconda3/envs/predYanot/bin/blastp
+[16:58:01] Determined blastp version is 2.12
+[16:58:01] Looking for 'cmpress' - found /home/matias/miniconda3/envs/predYanot/bin/cmpress
+[16:58:01] Determined cmpress version is 1.1
+[16:58:01] Looking for 'cmscan' - found /home/matias/miniconda3/envs/predYanot/bin/cmscan
+[16:58:01] Determined cmscan version is 1.1
+[16:58:01] Looking for 'egrep' - found /usr/bin/egrep
+[16:58:01] Looking for 'find' - found /usr/bin/find
+[16:58:01] Looking for 'grep' - found /usr/bin/grep
+[16:58:01] Looking for 'hmmpress' - found /home/matias/miniconda3/envs/predYanot/bin/hmmpress
+[16:58:01] Determined hmmpress version is 3.4
+[16:58:01] Looking for 'hmmscan' - found /home/matias/miniconda3/envs/predYanot/bin/hmmscan
+[16:58:01] Determined hmmscan version is 3.4
+[16:58:01] Looking for 'java' - found /home/matias/miniconda3/envs/predYanot/bin/java
+[16:58:01] Looking for 'less' - found /usr/bin/less
+[16:58:01] Looking for 'makeblastdb' - found /home/matias/miniconda3/envs/predYanot/bin/makeblastdb
+[16:58:02] Determined makeblastdb version is 2.12
+[16:58:02] Looking for 'minced' - found /home/matias/miniconda3/envs/predYanot/bin/minced
+[16:58:02] Determined minced version is 4.2
+[16:58:02] Looking for 'parallel' - found /home/matias/miniconda3/envs/predYanot/bin/parallel
+[16:58:02] Determined parallel version is 20160622
+[16:58:02] Looking for 'prodigal' - found /home/matias/miniconda3/envs/predYanot/bin/prodigal
+[16:58:02] Determined prodigal version is 2.6
+[16:58:02] Looking for 'prokka-genbank_to_fasta_db' - found /home/matias/miniconda3/envs/predYanot/bin/prokka-genbank_to_fasta_db
+[16:58:02] Looking for 'sed' - found /usr/bin/sed
+[16:58:02] Looking for 'tbl2asn' - found /home/matias/miniconda3/envs/predYanot/bin/tbl2asn
+[16:58:02] Determined tbl2asn version is 25.8
+[16:58:02] Using genetic code table 11.
+[16:58:02] Loading and checking input file: scaffolds.fasta
+[16:58:02] Wrote 1 contigs totalling 30000 bp.
+[16:58:02] Predicting tRNAs and tmRNAs
+[16:58:02] Running: aragorn -l -gc11  -w prokka_annotation\/brucella_hybrid\.fna
+[16:58:03] Found 0 tRNAs
+[16:58:03] Predicting Ribosomal RNAs
+[16:58:03] Running Barrnap with 8 threads
+[16:58:03] Found 0 rRNAs
+[16:58:03] Skipping ncRNA search, enable with --rfam if desired.
+[16:58:03] Total of 0 tRNA + rRNA features
+[16:58:03] Searching for CRISPR repeats
+[16:58:03] Found 0 CRISPRs
+[16:58:03] Predicting coding sequences
+[16:58:03] Contigs total 30000 bp, so using meta mode
+[16:58:03] Running: prodigal -i prokka_annotation\/brucella_hybrid\.fna -c -m -g 11 -p meta -f sco -q
+[16:58:03] Found 26 CDS
+[16:58:03] Connecting features back to sequences
+[16:58:03] Not using genus-specific database. Try --usegenus to enable it.
+[16:58:03] Annotating CDS, please be patient.
+[16:58:03] Will use 8 CPUs for similarity searching.
+[16:58:03] There are still 26 unannotated CDS left (started with 26)
+[16:58:03] Will use blast to search against /home/matias/miniconda3/envs/predYanot/bin/../db/kingdom/Bacteria/sprot with 8 CPUs
+[16:58:03] Running: cat prokka_annotation\/sprot\.faa | parallel --gnu --plain -j 8 --block 516 --recstart '>' --pipe blastp -query - -db /home/matias/miniconda3/envs/predYanot/bin/../db/kingdom/Bacteria/sprot -evalue 1e-05 -num_threads 1 -num_descriptions 1 -num_alignments 1 -seg no > prokka_annotation\/sprot\.blast 2> /dev/null
+[16:58:06] Deleting unwanted file: prokka_annotation/sprot.faa
+[16:58:06] Deleting unwanted file: prokka_annotation/sprot.blast
+[16:58:06] There are still 7 unannotated CDS left (started with 26)
+[16:58:06] Will use hmmer3 to search against /home/matias/miniconda3/envs/predYanot/bin/../db/hmm/HAMAP.hmm with 8 CPUs
+[16:58:06] Running: cat prokka_annotation\/HAMAP\.hmm\.faa | parallel --gnu --plain -j 8 --block 63 --recstart '>' --pipe hmmscan --noali --notextw --acc -E 1e-05 --cpu 1 /home/matias/miniconda3/envs/predYanot/bin/../db/hmm/HAMAP.hmm /dev/stdin > prokka_annotation\/HAMAP\.hmm\.hmmer3 2> /dev/null
+[16:58:07] Deleting unwanted file: prokka_annotation/HAMAP.hmm.faa
+[16:58:07] Deleting unwanted file: prokka_annotation/HAMAP.hmm.hmmer3
+[16:58:07] Labelling remaining 6 proteins as 'hypothetical protein'
+[16:58:07] Found 19 unique /gene codes.
+[16:58:07] Fixed 0 colliding /gene names.
+[16:58:07] Adding /locus_tag identifiers
+[16:58:07] Assigned 26 locus_tags to CDS and RNA features.
+[16:58:07] Writing outputs to prokka_annotation/
+[16:58:07] Generating annotation statistics file
+[16:58:07] Generating Genbank and Sequin files
+[16:58:07] Running: tbl2asn -V b -a r10k -l paired-ends -M n -N 1 -y 'Annotated using prokka 1.13 from https://github.com/tseemann/prokka' -Z prokka_annotation\/brucella_hybrid\.err -i prokka_annotation\/brucella_hybrid\.fsa 2> /dev/null
+[16:58:07] Deleting unwanted file: prokka_annotation/errorsummary.val
+[16:58:07] Deleting unwanted file: prokka_annotation/brucella_hybrid.dr
+[16:58:07] Deleting unwanted file: prokka_annotation/brucella_hybrid.fixedproducts
+[16:58:07] Deleting unwanted file: prokka_annotation/brucella_hybrid.ecn
+[16:58:07] Deleting unwanted file: prokka_annotation/brucella_hybrid.val
+[16:58:07] Repairing broken .GBK output that tbl2asn produces...
+[16:58:07] Running: sed 's/COORDINATES: profile/COORDINATES:profile/' < prokka_annotation\/brucella_hybrid\.gbf > prokka_annotation\/brucella_hybrid\.gbk
+[16:58:07] Deleting unwanted file: prokka_annotation/brucella_hybrid.gbf
+[16:58:07] Output files:
+[16:58:07] prokka_annotation/brucella_hybrid.log
+[16:58:07] prokka_annotation/brucella_hybrid.txt
+[16:58:07] prokka_annotation/brucella_hybrid.fna
+[16:58:07] prokka_annotation/brucella_hybrid.ffn
+[16:58:07] prokka_annotation/brucella_hybrid.faa
+[16:58:07] prokka_annotation/brucella_hybrid.err
+[16:58:07] prokka_annotation/brucella_hybrid.gbk
+[16:58:07] prokka_annotation/brucella_hybrid.sqn
+[16:58:07] prokka_annotation/brucella_hybrid.gff
+[16:58:07] prokka_annotation/brucella_hybrid.fsa
+[16:58:07] prokka_annotation/brucella_hybrid.tbl
+[16:58:07] prokka_annotation/brucella_hybrid.tsv
+[16:58:07] Annotation finished successfully.
+[16:58:07] Walltime used: 0.12 minutes
+[16:58:07] If you use this result please cite the Prokka paper:
+[16:58:07] Seemann T (2014) Prokka: rapid prokaryotic genome annotation. Bioinformatics. 30(14):2068-9.
+[16:58:07] Type 'prokka --citation' for more details.
+[16:58:07] Share and enjoy!

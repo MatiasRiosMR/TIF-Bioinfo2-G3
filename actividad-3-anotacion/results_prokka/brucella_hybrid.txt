@@ -1,0 +1,4 @@
+organism: Brucella suis strain 
+contigs: 1
+bases: 30000
+CDS: 26
