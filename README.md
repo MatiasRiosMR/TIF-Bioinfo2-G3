@@ -12,109 +12,98 @@
 
 ## Descripción General
 
-Trabajo Práctico Integrador que implementa un pipeline bioinformático completo para el análisis y anotación de genomas bacterianos aplicado al estudio de un brote de **Brucelosis**. El proyecto integra múltiples etapas: ensamblado de secuencias, análisis de calidad, anotación funcional, análisis filogenético y diseño de primers.
+Trabajo Práctico Integrador que presenta un análisis bioinformático completo para un brote de **Brucelosis**. El repositorio contiene resultados y scripts asociados a tres etapas principales:
+
+1. Ensamblado y evaluación de calidad
+2. Anotación funcional y búsqueda BLAST
+3. Diseño de primers y análisis de sitios de restricción
 
 ---
 
 ## Estudiantes Responsables
 
 - **Sara Barbara**
-- **Emilia Vergara**  
+- **Emilia Vergara**
 - **Matias Rios**
 
 ---
 
 ## Contenido del Repositorio
 
-Este repositorio contiene todos los scripts, configuraciones y documentos con resultados utilizados para el desarrollo del trabajo práctico:
-
-- **actividad-2-ensamblado/**: Scripts y resultados del ensamblado híbrido de lecturas cortas y largas usando SPAdes, incluyendo reportes de calidad (QUAST)
-
-- **actividad-4-anotacion/**: Predicción de genes (Prodigal) y anotación funcional (Prokka). Refinamiento mediante búsquedas BLAST contra la base de datos SwissProt. Incluye script automatizado para paralelizar búsquedas y tabla consolidada con funciones predichas
-
-- **actividad-5-filogenia/**: Análisis evolutivo de *Brucella suis* mediante PSI-BLAST, alineamiento múltiple (Clustal X), identificación de dominios conservados (InterPro) y construcción de árbol filogenético para comparar con otras especies bacterianas
-
-- **actividad-6-diseno-primers/**: Pipeline en Python/bash que diseña primers específicos de 20 nucleótidos para cada gen. Calcula temperaturas de melting (Tm) y annealing (Ta), genera productos de PCR en FASTA, y analiza sitios de restricción (EcoRI, BamHI, AvaII) para evaluación de clonado
+- **actividad-2-ensamblado/**: resultados de ensamblado híbrido con SPAdes y evaluación QUAST
+- **actividad-4-anotacion/**: resultados de anotación con Prokka/Prodigal y pipeline BLAST local
+- **actividad-5-filogenia/**: resultados de alineamiento y árbol filogenético
+- **actividad-6-diseno-primers/**: pipeline Python para diseño automático de primers y análisis de restricción
 
 ---
 
-## Requisitos e Instalación
+## Requisitos
 
-### Dependencias de Software
+### Dependencias Python
 
-Este proyecto requiere las siguientes herramientas bioinformáticas:
-
-- **SPAdes** - Ensamblador híbrido de genomas
-- **QUAST** - Herramienta de evaluación de calidad de ensamblados
-- **Prodigal** - Predictor de genes procariotes
-- **Prokka** - Anotador rápido de genomas bacterianos
-- **BLAST+** - Herramienta de búsqueda de similitud de secuencias
-- **BioPython** - Librería Python para bioinformática
-
-### Instalación de Dependencias Python
-
-1. **Clonar o descargar el repositorio**:
-   ```bash
-   git clone <https://github.com/MatiasRiosMR/TIF-Bioinfo2-G3.git>
-   cd TIF-Bioinfo2-G3
-   ```
-
-2. **Instalar dependencias Python**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Herramientas Bioinformáticas Recomendadas
-
-Se recomienda usar conda/mamba para instalar las herramientas bioinformáticas:
+- Python 3.8 o superior
+- `biopython>=1.87`
 
 ```bash
-# Crear ambiente conda
+pip install -r requirements.txt
+```
+
+### Dependencias bioinformáticas opcionales
+
+Para reproducir las etapas de ensamblado y anotación fuera de los resultados ya generados:
+
+- `spades`
+- `quast`
+- `prodigal`
+- `prokka`
+- `blast+`
+
+Se recomienda instalar estas herramientas con `conda`/`mamba`:
+
+```bash
 conda create -n brucelosis-tp python=3.8
-
-# Activar ambiente
 conda activate brucelosis-tp
-
-# Instalar herramientas
 conda install -c bioconda spades quast prodigal prokka blast biopython
 ```
 
 ---
 
-## Configuración del Pipeline de Anotación
+## Uso de los Pipelines
 
-### Opción 1: Base de Datos SwissProt Local (Recomendado)
+### Diseño de primers (pipeline Python)
 
-#### Descargar la Base de Datos SwissProt
-
-```bash
-# Descargar SwissProt
-cd actividad-4-anotacion/pipeline-blast_local/db/
-wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
-gunzip uniprot_sprot.fasta.gz
-
-# Crear índice BLAST
-makeblastdb -in uniprot_sprot.fasta -dbtype prot -out swissprot
-```
-
-#### Configurar la Ruta en el Script
-
-Edita el archivo `actividad-4-anotacion/pipeline-blast_local/blast_analizar_top3hits.sh` y modifica la variable `DB` con la ruta donde descargaste la base de datos:
+El pipeline Python se encuentra en `actividad-6-diseno-primers/diseñar_primers.py`.
 
 ```bash
-# Línea a modificar en el script:
-DB="/ruta/a/tu/base/de/datos/swissprot"
+cd actividad-6-diseno-primers/
+python3 diseñar_primers.py -f data/scaffolds.fasta -g data/brucella_hybrid.gff -o resultado
 ```
 
-### Opción 2: Base de Datos SwissProt Remota
+Archivos de salida esperados:
 
-Para usar la base de datos remota de BLAST (NCBI), modifica los parámetros en `blast_analizar_top3hits.sh`:
+- `resultado/res_primers.tab`
+- `resultado/res_prod.fa`
+- `resultado/res_enzimas.tab`
+- `resultado/pipeline.stdout.log`
+- `resultado/pipeline.stderr.log`
+
+### Ensamblado de genoma (SPAdes)
 
 ```bash
-# Cambia la base de datos de local a remota
-# Comenta la línea local y usa:
-blastx -query $INPUT -db swissprot -remote -evalue $EVALUE -num_alignments $MAX_TARGETS -num_threads $THREADS -out $OUTPUT -outfmt 6
+cd actividad-2-ensamblado/spades_hybrid/
+bash run_spades.sh
 ```
+
+> Nota: `run_spades.sh` contiene rutas absolutas de un entorno previo y debe ajustarse antes de ejecutarlo.
+
+### Anotación BLAST local
+
+```bash
+cd actividad-4-anotacion/pipeline-blast_local/
+bash blast_analizar_top3hits.sh
+```
+
+> Nota: `blast_analizar_top3hits.sh` requiere que la variable `DB` apunte a una base de datos SwissProt local válida y que `blastp` esté en el `PATH`.
 
 ---
 
@@ -122,77 +111,49 @@ blastx -query $INPUT -db swissprot -remote -evalue $EVALUE -num_alignments $MAX_
 
 ```
 TIF-Bioinfo2-G3/
-├── README.md                          # Este archivo
-├── requirements.txt                   # Dependencias Python
-├── actividad-2-ensamblado/           # Ensamblado de genomas
+├── README.md
+├── requirements.txt
+├── actividad-2-ensamblado/
 │   ├── secuencia_consenso.fasta
 │   ├── Set3.fq
-│   ├── quast_hybrid/                 # Resultados de evaluación de calidad
-│   └── spades_hybrid/                # Resultados del ensamblado SPAdes
-├── actividad-4-anotacion/            # Anotación funcional
-│   ├── results_prodigal/             # Resultados de predicción de genes
-│   ├── results_prokka/               # Resultados de anotación Prokka
-│   └── pipeline-blast_local/         # Pipeline BLAST local
-│       └── db/                       # Base de datos BLAST
-├── actividad-5-filogenia/            # Análisis filogenético
-└── actividad-6-diseno-primers/       # Diseño de primers
-    ├── main.py
-    ├── requirements.txt
+│   ├── quast_hybrid/
+│   └── spades_hybrid/
+├── actividad-4-anotacion/
+│   ├── results_prodigal/
+│   ├── results_prokka/
+│   └── pipeline-blast_local/
+│       └── db/
+├── actividad-5-filogenia/
+│   ├── data_secuencias/
+│   ├── data-arbol/
+│   └── results-msa/
+└── actividad-6-diseno-primers/
+    ├── data/
+    ├── diseñar_primers.py
     ├── primer_pipeline/
-    └── resultado/
+    ├── res_primers.tab
+    ├── res_prod.fa
+    └── res_enzimas.tab
 ```
 
 ---
 
-## Uso de los Pipelines
+## Resultados disponibles
 
-### 1. Ensamblado (SPAdes)
-
-```bash
-cd actividad-2-ensamblado/
-bash run_spades.sh
-```
-
-### 2. Anotación (BLAST Local)
-
-```bash
-cd actividad-4-anotacion/pipeline-blast_local/
-# Asegúrate de haber configurado la ruta DB correctamente
-bash blast_analizar_top3hits.sh
-```
-
-### 3. Diseño de Primers
-
-```bash
-cd actividad-6-diseno-primers/
-python main.py
-```
+- `actividad-2-ensamblado/quast_hybrid/`: reportes de calidad de ensamblado
+- `actividad-4-anotacion/results_prokka/`: anotación funcional con Prokka
+- `actividad-4-anotacion/pipeline-blast_local/blast_swissprot.tsv`: resultados BLAST
+- `actividad-6-diseno-primers/res_primers.tab`: tabla de primers diseñados
+- `actividad-6-diseno-primers/res_prod.fa`: productos de PCR en formato FASTA
+- `actividad-6-diseno-primers/res_enzimas.tab`: análisis de sitios de restricción
 
 ---
 
-## Datos Utilizados
+## Notas importantes
 
-Los datos utilizados en este trabajo práctico fueron proporcionados por la **Cátedra de Bioinformática 2** de la Facultad de Ingeniería (UNER) a fin del trabajo final integrador de la materia para el análisis y estudio del brote de brucelosis porcina.
-
----
-
-## Resultados
-
-Todos los resultados generados durante el análisis se encuentran organizados en sus respectivas carpetas:
-
-- **Reportes de Calidad**: `actividad-2-ensamblado/quast_hybrid/`
-- **Anotación de Genes**: `actividad-4-anotacion/results_prokka/`
-- **Resultados BLAST**: `actividad-4-anotacion/pipeline-blast_local/blast_swissprot.tsv`
-- **Primers Diseñados**: `actividad-6-diseno-primers/resultado/`
-
----
-
-## Notas Importantes
-
-- Los scripts contienen rutas específicas que pueden necesitar ajustes según tu entorno
-- Se recomienda ejecutar los pipelines en un sistema Linux/Unix
-- Asegúrate de tener suficiente espacio en disco para las bases de datos y resultados
-- La ejecución completa del pipeline puede requerir varias horas
+- El pipeline Python de diseño de primers requiere solo `biopython` como dependencia externa.
+- Los scripts de ensamblado y BLAST incluyen rutas fijas que deben actualizarse para ejecutarse en otro equipo.
+- El proyecto está diseñado para Linux/Unix.
 
 ---
 
@@ -204,4 +165,4 @@ Todos los resultados generados durante el análisis se encuentran organizados en
 
 ## Licencia
 
-Este proyecto es de uso restringido. Se debe solicitar autorización para cualquier uso fuera del ámbito académico.
+Uso académico únicamente. Solicitar autorización para uso externo.
