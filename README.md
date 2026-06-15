@@ -98,12 +98,36 @@ bash run_spades.sh
 
 ### Anotación BLAST local
 
+Este proyecto usa una base de datos SwissProt local descargada previamente, ya que la ejecución remota puede demorar mucho y depende de la disponibilidad del servidor NCBI.
+
 ```bash
 cd actividad-4-anotacion/pipeline-blast_local/
+```
+
+#### Descargar SwissProt localmente
+
+```bash
+cd actividad-4-anotacion/pipeline-blast_local/db/
+wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
+gunzip uniprot_sprot.fasta.gz
+makeblastdb -in uniprot_sprot.fasta -dbtype prot -out swissprot
+```
+
+#### Modificar el script `blast_analizar_top3hits.sh`
+
+En el script, coloca la ruta completa de la base de datos local en la variable `DB`:
+
+```bash
+DB="/ruta/completa/a/actividad-4-anotacion/pipeline-blast_local/db/swissprot"
+```
+
+Entonces ejecuta:
+
+```bash
 bash blast_analizar_top3hits.sh
 ```
 
-> Nota: `blast_analizar_top3hits.sh` requiere que la variable `DB` apunte a una base de datos SwissProt local válida y que `blastp` esté en el `PATH`.
+> Nota: `blast_analizar_top3hits.sh` también requiere que `blastp` esté en el `PATH`.
 
 ---
 
