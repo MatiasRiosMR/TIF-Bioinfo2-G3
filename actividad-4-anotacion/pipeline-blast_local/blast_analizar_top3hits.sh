@@ -9,7 +9,7 @@ set -euo pipefail
 INPUT="brucella_hybrid.faa"
 OUTPUT="blast_swissprot.tsv"
 LOG="blast_swissprot.log"
-DB="/home/matias/Escritorio/TP_Set3/actividad-3-anotacion/pipeline-blast_local/db/swissprot"
+DB="./db/swissprot"
 
 EVALUE="1e-5"
 MAX_TARGETS=3
@@ -113,7 +113,7 @@ log_info "Entorno y dependencias verificadas correctamente."
 TOTAL=$(grep -c "^>" "$INPUT")
 log_info "Total de secuencias identificadas en el input: ${B_CYAN}$TOTAL${NC}"
 
-# Inicializar archivo de salida con su correspondiente cabecera (Agregado qcovs)
+# Inicializar archivo de salida con su correspondiente cabecera
 echo -e "qseqid\tsseqid\tpident\tlength\tqcovs\tevalue\tbitscore\ttitle" > "$OUTPUT"
 
 ############################
@@ -127,7 +127,7 @@ echo ""
 SPINNER="⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
 SPIN_IDX=0
 
-# Ejecución de BLASTp en segundo plano (Se añade qcovs a la salida tabular)
+# Ejecución de BLASTp en segundo plano
 blastp \
   -query "$INPUT" \
   -db "$DB" \
@@ -183,6 +183,38 @@ printf "\r  [OK] Ejecución completada:     [${B_GREEN}%s${NC}] ${B_GREEN}100%%$
 echo ""
 
 log_info "El análisis por homología de secuencias ha finalizado."
+
+############################
+# POST-PROCESAMIENTO: LIMPIEZA DE LA FUNCIÓN (TITLE)
+############################
+
+log_status "Filtrando descripciones de Swiss-Prot para extraer solo la función..."
+
+TEMP_OUTPUT="${OUTPUT}.tmp"
+
+awk -F'\t' '
+BEGIN {OFS="\t"}
+NR==1 {print; next} # Mantiene la cabecera intacta
+{
+    # Busca "RecName: Full=" y extrae el nombre limpio hasta el primer ";"
+    if (match($8, /RecName: Full=[^;]+/)) {
+        match_str = substr($8, RSTART, RLENGTH);
+        sub(/RecName: Full=/, "", match_str);
+        $8 = match_str;
+    } 
+    # Alternativa por si contiene la etiqueta "SubName"
+    else if (match($8, /SubName: Full=[^;]+/)) {
+        match_str = substr($8, RSTART, RLENGTH);
+        sub(/SubName: Full=/, "", match_str);
+        $8 = match_str;
+    }
+    print;
+}' "$OUTPUT" > "$TEMP_OUTPUT"
+
+# Reemplazar el archivo viejo por el nuevo limpio
+mv "$TEMP_OUTPUT" "$OUTPUT"
+
+log_info "Títulos procesados. Columna 'title' simplificada correctamente."
 
 ############################
 # FINALIZACIÓN Y REPORTE DE RUTAS
