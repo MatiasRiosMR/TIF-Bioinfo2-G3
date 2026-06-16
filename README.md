@@ -1,4 +1,4 @@
-# Proyecto: Bioinformática Aplicada a un Brote de Brucelosis
+# Trabajo Práctico Integrador de Bioinformática 2
 
 <div align="center">
   <img src="./data/logo_fiuner.png" alt="Logo FIUNER" width="200">
@@ -6,187 +6,244 @@
 
 **Asignatura:** Bioinformática 2
 
-**Institución:** Facultad de Ingeniería - Universidad Nacional de Entre Ríos
+**Institución:** Facultad de Ingeniería, Universidad Nacional de Entre Ríos
+
+**Año:** 2026
 
 ---
 
-## Descripción General
+## Introducción
 
-Trabajo Práctico Integrador que presenta un análisis bioinformático completo para un brote de **Brucelosis**. El repositorio contiene resultados y scripts asociados a tres etapas principales:
+Este repositorio documenta el desarrollo y los resultados de un trabajo práctico integrador orientado al análisis bioinformático de un brote de *Brucella*. La intención es proporcionar una guía reproducible para cada etapa del proyecto, junto con los resultados obtenidos durante el desarrollo.
+
+El proyecto se organiza por actividades, cada una con un objetivo específico dentro del flujo de trabajo genómico:
 
 1. Ensamblado y evaluación de calidad
 2. Anotación funcional y búsqueda BLAST
-3. Diseño de primers y análisis de sitios de restricción
+3. Filogenia comparativa
+4. Diseño de primers y análisis de sitios de restricción
 
 ---
 
-## Estudiantes Responsables
+## Equipo Responsable
 
-- **Sara Barbara**
-- **Emilia Vergara**
-- **Matias Rios**
-
----
-
-## Contenido del Repositorio
-
-- **actividad-2-ensamblado/**: resultados de ensamblado híbrido con SPAdes y evaluación QUAST
-- **actividad-4-anotacion/**: resultados de anotación con Prokka/Prodigal y pipeline BLAST local
-- **actividad-5-filogenia/**: resultados de alineamiento y árbol filogenético
-- **actividad-6-diseno-primers/**: pipeline Python para diseño automático de primers y análisis de restricción
+- Sara Barbara
+- Emilia Vergara
+- Matías Ríos
 
 ---
 
-## Requisitos
+## Resumen de Actividades
 
-### Dependencias Python
+### Actividad 2: Ensamblado y evaluación de calidad
+
+Objetivo: generar un ensamblado híbrido de la secuencia de *Brucella* y evaluar su calidad con métricas estándar.
+
+Contenidos principales:
+- `actividad-2-ensamblado/spades_hybrid/`: ejecución de SPAdes para ensamblado híbrido.
+- `actividad-2-ensamblado/quast_hybrid/`: reportes de QUAST con estadísticas de ensamblado.
+- `secuencia_consenso.fasta` y `Set3.fq`: insumos de secuencias utilizadas.
+
+Resultado: un ensamblado de mayor calidad validado por métricas como N50, longitud total y número de contigs.
+
+### Actividad 4: Anotación funcional y búsqueda BLAST
+
+Objetivo: caracterizar las secuencias ensambladas mediante anotación automática y comparación con bases de datos de proteínas.
+
+Contenidos principales:
+- `actividad-4-anotacion/results_prokka/`: anotación funcional realizada con Prokka.
+- `actividad-4-anotacion/results_prodigal/`: predicción de genes con Prodigal.
+- `actividad-4-anotacion/pipeline-blast_local/`: análisis local de BLAST contra SwissProt.
+
+Resultado: generación de archivos de anotación estructural y funcional, además de identificaciones de homologías significativas.
+
+### Actividad 5: Filogenia comparativa
+
+Objetivo: inferir relaciones filogenéticas con base en alineamientos de secuencias seleccionadas.
+
+Contenidos principales:
+- `actividad-5-filogenia/data_secuencias/`: secuencias de referencia utilizadas para el análisis.
+- `actividad-5-filogenia/results-msa/Multifasta.aln`: alineamiento múltiple generado.
+- `actividad-5-filogenia/data-arbol/ML_clustal.tree`: árbol filogenético resultante.
+
+Resultado: un árbol filogenético que posiciona las secuencias de *Brucella* frente a referencias relevantes.
+
+### Actividad 6: Diseño de primers y análisis de sitios de restricción
+
+Objetivo: diseñar primers específicos para la amplificación de regiones de interés y estudiar sitios de restricción asociados.
+
+Contenidos principales:
+- `actividad-6-diseno-primers/diseñar_primers.py`: script principal del pipeline de diseño.
+- `actividad-6-diseno-primers/primer_pipeline/`: módulos auxiliares del pipeline.
+- `actividad-6-diseno-primers/data/`: datos de entrada, incluida la anotación y el ensamblado.
+- `actividad-6-diseno-primers/resultado/`: resultados de primers, productos esperados y mapas de enzimas.
+
+Resultado: conjunto de primers propuestos, sus productos de PCR simulados y el análisis de sitios de restricción.
+
+---
+
+## Requisitos de Software
+
+### Dependencias de Python
 
 - Python 3.8 o superior
-- `biopython>=1.87`
+- Biopython
+
+Instalación:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Dependencias bioinformáticas opcionales
+### Dependencias de bioinformática opcionales
 
-Para reproducir las etapas de ensamblado y anotación fuera de los resultados ya generados:
+Para ejecutar localmente las etapas de ensamblado, anotación y BLAST:
 
-- `spades`
-- `quast`
-- `prodigal`
-- `prokka`
-- `blast+`
+- SPAdes
+- QUAST
+- Prodigal
+- Prokka
+- BLAST+
 
-Se recomienda instalar estas herramientas con `conda`/`mamba`:
+Ejemplo con Conda:
 
 ```bash
-conda create -n brucelosis-tp python=3.8
-conda activate brucelosis-tp
+conda create -n tp_bioinfo2 python=3.8
+conda activate tp_bioinfo2
 conda install -c bioconda spades quast prodigal prokka blast biopython
 ```
 
+> Nota: los resultados ya generados están almacenados en el repositorio. La reproducibilidad completa requiere actualizar rutas y configurar las bases de datos según el entorno local.
+
 ---
 
-## Uso de los Pipelines
+## Guía de Reproducción
 
-### Diseño de primers (pipeline Python)
+### Actividad 2: Reproducir ensamblado híbrido
 
-El pipeline Python se encuentra en `actividad-6-diseno-primers/diseñar_primers.py`.
-
-```bash
-cd actividad-6-diseno-primers/
-python3 diseñar_primers.py -f data/scaffolds.fasta -g data/brucella_hybrid.gff -o resultado
-```
-
-Archivos de salida esperados:
-
-- `resultado/res_primers.tab`
-- `resultado/res_prod.fa`
-- `resultado/res_enzimas.tab`
-- `resultado/pipeline.stdout.log`
-- `resultado/pipeline.stderr.log`
-
-### Ensamblado de genoma (SPAdes)
+1. Ingresar al directorio:
 
 ```bash
 cd actividad-2-ensamblado/spades_hybrid/
+```
+
+2. Revisar y adaptar `run_spades.sh` para las rutas locales.
+3. Ejecutar el script:
+
+```bash
 bash run_spades.sh
 ```
 
-> Nota: `run_spades.sh` contiene rutas absolutas de un entorno previo y debe ajustarse antes de ejecutarlo.
+4. Evaluar el ensamblado con QUAST en `actividad-2-ensamblado/quast_hybrid/`.
 
-### Anotación BLAST local
+### Actividad 4: Reproducir anotación y BLAST local
 
-Este proyecto usa una base de datos SwissProt local descargada previamente, ya que la ejecución remota puede demorar mucho y depende de la disponibilidad del servidor NCBI.
+1. Ingresar al directorio de BLAST:
 
 ```bash
 cd actividad-4-anotacion/pipeline-blast_local/
 ```
 
-#### Descargar SwissProt localmente
+2. Descargar y preparar SwissProt local:
 
 ```bash
-cd actividad-4-anotacion/pipeline-blast_local/db/
 wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
 gunzip uniprot_sprot.fasta.gz
 makeblastdb -in uniprot_sprot.fasta -dbtype prot -out swissprot
 ```
 
-#### Modificar el script `blast_analizar_top3hits.sh`
-
-En el script, coloca la ruta completa de la base de datos local en la variable `DB`:
-
-```bash
-DB="/ruta/completa/a/actividad-4-anotacion/pipeline-blast_local/db/swissprot"
-```
-
-Entonces ejecuta:
+3. Ajustar la variable `DB` en `blast_analizar_top3hits.sh` con la ruta absoluta del archivo `swissprot`.
+4. Ejecutar el análisis:
 
 ```bash
 bash blast_analizar_top3hits.sh
 ```
 
-> Nota: `blast_analizar_top3hits.sh` también requiere que `blastp` esté en el `PATH`.
+### Actividad 5: Reproducir filogenia
 
----
+1. Revisar `actividad-5-filogenia/data_secuencias/` y `results-msa/`.
+2. Validar los alineamientos con la herramienta de su preferencia.
+3. Visualizar el árbol en `actividad-5-filogenia/data-arbol/ML_clustal.tree`.
 
-## Estructura del Proyecto
+### Actividad 6: Reproducir diseño de primers
 
-```
-TIF-Bioinfo2-G3/
-├── README.md
-├── requirements.txt
-├── actividad-2-ensamblado/
-│   ├── secuencia_consenso.fasta
-│   ├── Set3.fq
-│   ├── quast_hybrid/
-│   └── spades_hybrid/
-├── actividad-4-anotacion/
-│   ├── results_prodigal/
-│   ├── results_prokka/
-│   └── pipeline-blast_local/
-│       └── db/
-├── actividad-5-filogenia/
-│   ├── data_secuencias/
-│   ├── data-arbol/
-│   └── results-msa/
-└── actividad-6-diseno-primers/
-    ├── data/
-    ├── diseñar_primers.py
-    ├── primer_pipeline/
-    ├── res_primers.tab
-    ├── res_prod.fa
-    └── res_enzimas.tab
+1. Ingresar al directorio:
+
+```bash
+cd actividad-6-diseno-primers/
 ```
 
----
+2. Ejecutar el script principal:
 
-## Resultados disponibles
+```bash
+python3 diseñar_primers.py -f data/scaffolds.fasta -g data/brucella_hybrid.gff -o resultado
+```
 
-- `actividad-2-ensamblado/quast_hybrid/`: reportes de calidad de ensamblado
-- `actividad-4-anotacion/results_prokka/`: anotación funcional con Prokka
-- `actividad-4-anotacion/pipeline-blast_local/blast_swissprot.tsv`: resultados BLAST
-- `actividad-6-diseno-primers/res_primers.tab`: tabla de primers diseñados
-- `actividad-6-diseno-primers/res_prod.fa`: productos de PCR en formato FASTA
-- `actividad-6-diseno-primers/res_enzimas.tab`: análisis de sitios de restricción
+3. Consultar los archivos generados en `resultado/`.
 
 ---
 
-## Notas importantes
+## Resultados Generados
 
-- El pipeline Python de diseño de primers requiere solo `biopython` como dependencia externa.
-- Los scripts de ensamblado y BLAST incluyen rutas fijas que deben actualizarse para ejecutarse en otro equipo.
-- El proyecto está diseñado para Linux/Unix.
+Los resultados principales ya se encuentran incluidos en el repositorio. Los archivos más relevantes son:
+
+- `actividad-2-ensamblado/quast_hybrid/report.txt`: métricas de calidad del ensamblado.
+- `actividad-4-anotacion/results_prokka/brucella_hybrid.gff`: anotación funcional y estructural.
+- `actividad-4-anotacion/pipeline-blast_local/blast_swissprot.tsv`: resultados de BLAST local.
+- `actividad-5-filogenia/results-msa/Multifasta.aln`: alineamiento múltiple.
+- `actividad-5-filogenia/data-arbol/ML_clustal.tree`: árbol de filogenia.
+- `actividad-6-diseno-primers/resultado/res_primers.tab`: tabla de primers diseñados.
+- `actividad-6-diseno-primers/resultado/res_prod.fa`: secuencias de los productos de PCR.
+- `actividad-6-diseno-primers/resultado/res_enzimas.tab`: análisis de sitios de restricción.
+
+---
+
+## Estructura del Repositorio
+
+```text
+README.md
+requirements.txt
+actividad-2-ensamblado/
+  ├── secuencia_consenso.fasta
+  ├── Set3.fq
+  ├── quast_hybrid/
+  └── spades_hybrid/
+actividad-4-anotacion/
+  ├── GCF_genoma_referencia.fna
+  ├── scaffolds.fasta
+  ├── data-genoma-referencia/
+  ├── pipeline-blast_local/
+  │   ├── blast_analizar_top3hits.sh
+  │   └── db/
+  ├── results_prodigal/
+  └── results_prokka/
+actividad-5-filogenia/
+  ├── data_secuencias/
+  ├── data-arbol/
+  └── results-msa/
+actividad-6-diseno-primers/
+  ├── diseñar_primers.py
+  ├── primer_pipeline/
+  ├── data/
+  └── resultado/
+```
+
+---
+
+## Observaciones de Reproducibilidad
+
+- Algunas rutas dentro de los scripts están configuradas para el entorno original del desarrollo y deben adaptarse en equipos distintos.
+- Las bases de datos de BLAST pueden ser voluminosas; se recomienda realizar la descarga en un entorno con conexión estable.
+- Los resultados incluidos se ofrecen como referencia para la evaluación, pero el flujo de trabajo completo puede reproducirse con las herramientas listadas.
+
+---
+
+## Licencia y Uso
+
+Este trabajo se presenta con fines académicos. Su uso externo o comercial requiere autorización del equipo responsable y de la institución.
 
 ---
 
 ## Versión
 
 **v1.0** - Junio 2026
-
----
-
-## Licencia
-
-Uso académico únicamente. Solicitar autorización para uso externo.
