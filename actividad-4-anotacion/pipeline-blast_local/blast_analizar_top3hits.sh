@@ -214,8 +214,6 @@ NR==1 {print; next} # Mantiene la cabecera intacta
 # Reemplazar el archivo viejo por el nuevo limpio
 mv "$TEMP_OUTPUT" "$OUTPUT"
 
-log_info "Títulos procesados. Columna 'title' simplificada correctamente."
-
 ############################
 # FINALIZACIÓN Y REPORTE DE RUTAS
 ############################

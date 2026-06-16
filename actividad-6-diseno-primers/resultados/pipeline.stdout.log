@@ -10,7 +10,7 @@ VALIDACIÓN DE ARCHIVOS DE ENTRADA
 
     OK: Archivo FASTA encontrado: data/scaffolds.fasta
     OK: Archivo GFF encontrado: data/brucella_hybrid.gff
-    OK: Directorio de salida listo: .
+    OK: Directorio de salida listo: resultados
 Paso 1: DISEÑO DE PRIMERS PARA PCR
      OK: Tabla de primers generada: res_primers.tab
      OK: Amplicones en FASTA generados: res_prod.fa
@@ -28,12 +28,12 @@ Archivos generados:
   res_prod.fa
   res_enzimas.tab
 
-Directorio de salida: /home/matias/Escritorio/TIF-Bioinfo2-G3/actividad-6-diseno-primers
+Directorio de salida: /home/matias/Escritorio/TIF-Bioinfo2-G3/actividad-6-diseno-primers/resultados
 
-Registro de salida: pipeline.stdout.log
-Registro de errores: pipeline.stderr.log
+Registro de salida: resultados/pipeline.stdout.log
+Registro de errores: resultados/pipeline.stderr.log
 
-Fecha de ejecución: 2026-06-14 19:13:20
+Fecha de ejecución: 2026-06-16 19:33:54
 
 
 ESTADÍSTICAS
@@ -54,7 +54,7 @@ Estadísticas por amplicón:
   Máximo de sitios: 6
   Promedio de sitios: 1.62
 
-Tiempo de ejecución: 0.02 segundos
+Tiempo de ejecución: 0.01 segundos
 
 Gracias por usar el pipeline.
 Contacto: bioinfortics.g3@ingenieria.uner.edu.ar
