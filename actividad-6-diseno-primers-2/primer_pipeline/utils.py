@@ -7,9 +7,9 @@ def reverse_complement(seq: str) -> str:
     """Genera el complemento reverso de una secuencia de nucleótidos (incluye IUPAC)."""
     complement = {
         'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G',
-        'N': 'N', 'W': 'W', 'S': 'S', 'K': 'K',
-        'M': 'M', 'R': 'R', 'Y': 'Y', 'B': 'B',
-        'D': 'D', 'H': 'H', 'V': 'V'
+        'N': 'N', 'W': 'W', 'S': 'S', 'K': 'M',
+        'M': 'K', 'R': 'Y', 'Y': 'R', 'B': 'V',
+        'D': 'H', 'H': 'D', 'V': 'B'
     }
     return ''.join(complement.get(base, 'N') for base in reversed(seq))
 

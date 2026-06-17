@@ -1,4 +1,3 @@
-# primer_pipeline/designer.py
 """
 Módulo encargado de la lectura de archivos biológicos y diseño de primers.
 """
@@ -15,7 +14,7 @@ except ImportError:
 
 class PrimerDesigner:
     """Diseñador de primers con cálculo de Tm."""
-    
+
     def __init__(self, fasta_file: str, gff_file: str):
         self.fasta_file = fasta_file
         self.gff_file = gff_file
@@ -25,6 +24,7 @@ class PrimerDesigner:
         self.primers = {}
         self.products = {}
         
+
     def load_sequence(self) -> bool:
         """Carga la secuencia del archivo FASTA."""
         try:
@@ -61,13 +61,15 @@ class PrimerDesigner:
                         continue
                     
                     gene_name = None
+
                     for attr in attrs.split(';'):
                         if attr.startswith('ID='):
-                            gene_name = attr.split('=')[1]
+                            gene_name = attr.split('=', 1)[1]
                             break
-                    
-                    if not gene_name:
+
+                    if gene_name is None:
                         gene_name = f"gene_{len(self.genes)+1}"
+                    
                     
                     self.genes.append({
                         'name': gene_name,
@@ -84,46 +86,67 @@ class PrimerDesigner:
             return False
     
     def calculate_tm(self, primer_seq: str) -> float:
-        """Calcula temperatura de melting usando fórmulas empíricas según longitud."""
-        if len(primer_seq) < 14:
-            return 4 * (primer_seq.count('G') + primer_seq.count('C')) + \
-                   2 * (primer_seq.count('A') + primer_seq.count('T'))
-        
-        gc_count = primer_seq.count('G') + primer_seq.count('C')
-        at_count = primer_seq.count('A') + primer_seq.count('T')
-        tm = 64.9 + 41 * (gc_count - 16.4) / (at_count + gc_count)
-        return round(tm, 2)
+            """
+            Calcula la temperatura de melting siguiendo estrictamente
+            la fórmula de Wallace de la infografía: Tm = 4*(G+C) + 2*(A+T)
+            """
+            gc_count = primer_seq.count('G') + primer_seq.count('C')
+            at_count = primer_seq.count('A') + primer_seq.count('T')
+            
+            tm = (4 * gc_count) + (2 * at_count)
+            return float(tm)
     
     def design_primers(self) -> bool:
         """Diseña primers para todos los genes cargados."""
+
         print("[*] Diseñando primers...")
+
         if not self.sequence or not self.genes:
             print("ERROR: Cargar secuencia y genes primero")
             return False
-        
+
         for gene in self.genes:
+
             start = gene['start']
             end = gene['end']
             strand = gene['strand']
             name = gene['name']
-            
-            if end > len(self.sequence):
-                print(f"    ⚠ Gen {name}: coordenada fuera de rango")
-                continue
-            
-            gene_seq = self.sequence[start:end]
-            if strand == '-':
-                gene_seq = reverse_complement(gene_seq)
-            
-            fw_primer = gene_seq[:20]
-            rv_primer_pos = gene_seq[-20:]
-            rv_primer = reverse_complement(rv_primer_pos)
-            
+
+
+            gene_length = end - start
+
+            if strand == '+':
+
+                # FW = 5 nt fuera + 15 nt dentro
+                fw_primer = self.sequence[start - 5:start + 15]
+
+                # RV = 15 nt dentro + 5 nt fuera
+                rv_region = self.sequence[end - 15:end + 5]
+                rv_primer = reverse_complement(rv_region)
+
+                # Amplicón completo
+                amplicon_seq = self.sequence[start - 5:end + 5]
+
+            else:
+
+                # Hebra negativa
+
+                fw_region = self.sequence[end - 15:end + 5]
+                fw_primer = reverse_complement(fw_region)
+
+                rv_region = self.sequence[start - 5:start + 15]
+                rv_primer = reverse_complement(rv_region)
+
+                amplicon_seq = reverse_complement(
+                    self.sequence[start - 5:end + 5]
+                )
+
             tm_fw = self.calculate_tm(fw_primer)
             ta_fw = tm_fw - 5
+
             tm_rv = self.calculate_tm(rv_primer)
             ta_rv = tm_rv - 5
-            
+
             self.primers[name] = {
                 'fw_primer': fw_primer,
                 'tm_fw': tm_fw,
@@ -131,13 +154,15 @@ class PrimerDesigner:
                 'rv_primer': rv_primer,
                 'tm_rv': tm_rv,
                 'ta_rv': ta_rv,
-                'product_size': len(gene_seq)
+                'product_size': len(amplicon_seq)
             }
-            self.products[name] = gene_seq
-        
+
+            self.products[name] = amplicon_seq
+
         print(f"    ✓ {len(self.primers)} pares de primers diseñados")
+
         return True
-    
+        
     def save_primers_tab(self, output_file: str) -> bool:
         """Guarda primers en formato tabular."""
         try:

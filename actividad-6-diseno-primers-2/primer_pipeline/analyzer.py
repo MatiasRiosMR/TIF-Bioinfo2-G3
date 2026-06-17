@@ -7,7 +7,7 @@ import re
 from typing import Dict
 from .utils import iupac_to_regex
 
-
+	
 class RestrictionAnalyzer:
     """Analizador de sitios de restricción en secuencias nucleotídicas."""
     
@@ -23,7 +23,7 @@ class RestrictionAnalyzer:
     
     def find_restriction_sites(self) -> bool:
         """Busca sitios de restricción en todos los productos guardados."""
-        print("[*] Analizando sitios de restricción...")
+        print("[ ] Analizando sitios de restricción...")
         
         for gene_name, product_seq in self.products.items():
             for enzyme_name, site_pattern in self.RESTRICTION_ENZYMES.items():
@@ -37,7 +37,7 @@ class RestrictionAnalyzer:
                     'count': len(matches)
                 })
         
-        print(f"    ✓ Análisis completado para {len(self.products)} amplicones")
+        print(f"     Análisis completado para {len(self.products)} amplicones")
         return True
     
     def save_results(self, output_file: str) -> bool:
