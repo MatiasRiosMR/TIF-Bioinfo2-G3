@@ -3,29 +3,43 @@ Módulo encargado de la lectura de archivos biológicos, diseño de primers
 y análisis de sitios de restricción para el kit diagnóstico de Brucella suis.
 """
 
-import sys
+import argparse
 from primer_pipeline.utils import reverse_complement
 from primer_pipeline.analyzer import RestrictionAnalyzer
 from primer_pipeline.designer import PrimerDesigner
 
-try:
-    from Bio import SeqIO
-except ImportError:
-    print("ERROR: Se requiere biopython. Instálalo con: pip install biopython")
-    sys.exit(1)
 
+
+def parse_arguments():
+    """Parsea los argumentos de línea de comandos."""
+    parser = argparse.ArgumentParser(
+        description="Diseñador de primers para diagnóstico de Brucella suis",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        
+    )
+    
+    parser.add_argument(
+        '-f', '--fasta',
+        type=str,
+        required=True,
+        help='Archivo FASTA con la secuencia (obligatorio)'
+    )
+    
+    parser.add_argument(
+        '-g', '--gff',
+        type=str,
+        required=True,
+        help='Archivo GFF con anotaciones de genes (obligatorio)'
+    )
+    
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
-    # CONTROL DE ENTRADAS POR CONSOLA (Cumple requisito estricto de la consigna)
-    if len(sys.argv) < 3:
-        print("\nERROR: Faltan archivos de entrada.")
-        print("Uso correcto: python diseñar_primers.py <archivo_fasta> <archivo_gff>")
-        print("Ejemplo: python diseñar_primers.py data/scaffolds.fasta data/brucella_hybrid.gff\n")
-        sys.exit(1)
-        
-    archivo_fasta = sys.argv[1]
-    archivo_gff = sys.argv[2]
+    # Parsear argumentos con banderas
+    args = parse_arguments()
+    archivo_fasta = args.fasta
+    archivo_gff = args.gff
     
     # Ejecución del Pipeline
     designer = PrimerDesigner(archivo_fasta, archivo_gff)
